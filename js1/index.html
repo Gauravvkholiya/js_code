@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript form validation - checking non-empty</title>
+    <link rel='stylesheet' href='index.css' type='text/css' />
+</head>
+
+<body >
+    <div class="mail">
+        <h2>american</h2>
+        <form name="form1" action="#">
+            <ul>
+                <li><input type='text' name='text1' /></li>
+                <li class="submit">
+                    <input type="submit" name="submit" value="Submit" onclick="card1(document.form1.text1)" />
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="mail">
+        <h2>Visa</h2>
+        <form name="form2" action="#">
+            <ul>
+                <li><input type='text' name='text1' /></li>
+         
+                <li class="submit"><input type="submit" name="submit" value="Submit"
+                        onclick="card2(document.form2.text1)" /></li>
+              
+            </ul>
+        </form>
+    </div>
+    <div class="mail">
+        <h2>Master card</h2>
+        <form name="form3" action="#">
+            <ul>
+                <li><input type='text' name='text1' /></li>
+                <li class="submit"><input type="submit" name="submit" value="Submit"
+                        onclick="card3(document.form3.text1)" /></li>
+            </ul>
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+
+</html>

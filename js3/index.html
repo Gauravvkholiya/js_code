@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Capital Quiz</title>
+</head>
+
+<body>
+    <h2>Country Capital Quiz</h2>
+    <label for="country List">Select a country:</label>
+    <select id="countryList">
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <!-- Add more countries as needed -->
+    </select>
+
+    <label for="capitalList">Select the capital:</label>
+    <select id="capitalList">
+        <option value="Washington">Washington</option>
+        <option value="London">London</option>
+        <option value="Paris">Paris</option>
+        <option value="Berlin">Berlin</option>
+        <!-- Add more capitals as needed -->
+    </select>
+
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p id="result"></p>
+    <script>
+        // Define an object to store country-capital pairs
+        var countryCapitals = {
+            "USA": "Washington",
+            "UK": "London",
+            "France": "Paris",
+            "Germany": "Berlin"
+            // Add more country-capital pairs as needed
+        };
+
+        function checkAnswer() {
+            var selectedCountry = document.getElementById('countryList').value;
+            var selectedCapital = document.getElementById('capitalList').value;
+            var resultDisplay = document.getElementById('result');
+            // Check if the selected capital matches the capital of the selected country
+            if (countryCapitals[selectedCountry] === selectedCapital) {
+                resultDisplay.textContent = "Correct answer!";
+            } else {
+                resultDisplay.textContent = "Incorrect answer. The correct capital of " + selectedCountry + " is " + countryCapitals[selectedCountry];
+            }
+        }
+    </script>
+
+</body>
+
+</html>

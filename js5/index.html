@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Modifying Web Page</title>
+    <style>
+        /* Define styles for demonstration purposes */
+        .content {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content" id="content">
+        This content will modify itself after every minute.
+    </div>
+
+    <script>
+        // Array of possible content modifications
+        var modifications = [
+            "New content 1",
+            "New content 2",
+            "New content 3"
+            // Add more content modifications as needed
+        ];
+
+        function modifyContent() {
+            // Randomly select a new content from the array
+            var randomIndex = Math.floor(Math.random() * modifications.length);
+            var newContent = modifications[randomIndex];
+
+            // Update the content of the element
+            document.getElementById('content').textContent = newContent;
+        }
+
+        // Call the modifyContent function every minute (60,000 milliseconds)
+        setInterval(modifyContent, 1000);
+    </script>
+
+</body>
+
+</html>

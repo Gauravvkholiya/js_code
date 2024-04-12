@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <h2>Form Validation</h2>
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <span id="nameError" class="error"></span><br>
+        <label for="email">E-Mail:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <span id="emailError" class="error"></span><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <span id="passwordError" class="error"></span><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var nameError = document.getElementById('nameError');
+            var emailError = document.getElementById('emailError');
+            var passwordError = document.getElementById('passwordError');
+            var valid = true;
+            if (name.trim() == "") {
+                nameError.textContent = "Name is required";
+                valid = false;
+            } else {
+                nameError.textContent = "";
+            }
+            if (email.trim() == "") {
+                emailError.textContent = "Email is required";
+                valid = false;
+            } else if (!validateEmail(email)) {
+                emailError.textContent = "Invalid email format";
+                valid = false;
+            } else {
+                emailError.textContent = "";
+            }
+            if (password.trim() == "") {
+                passwordError.textContent = "Password is required";
+                valid = false;
+            } else if (password.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters";
+                valid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+            return valid;
+        }
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    </script>
+</body>
+
+</html>

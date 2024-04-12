@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthdate Day of Week</title>
+    
+</head>
+
+<body>
+
+    <h2>Birthdate Day of Week</h2>
+
+    <label for="birthdate">Enter your birthdate (YYYY-MM-DD):</label>
+    <input type="text" id="birthdate" name="birthdate" placeholder="YYYY-MM-DD">
+
+    <button onclick="getDayOfWeek()">Get Day of Week</button>
+    <script>
+        function getDayOfWeek() {
+            // Get the value of the birthdate textbox
+            var birthdateString = document.getElementById('birthdate').value;
+
+            // Parse the birthdate string into a Date object
+            var birthdate = new Date(birthdateString);
+
+            // Check if the birthdate is valid
+            if (isNaN(birthdate.getTime())) {
+                alert("Invalid birthdate. Please enter a valid date (YYYY-MM-DD).");
+                return;
+            }
+            // Array of weekday names
+            var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            // Get the day of the week (0-6) from the Date object
+            var dayOfWeekIndex = birthdate.getDay();
+
+            // Get the name of the day of the week
+            var dayOfWeekName = weekdays[dayOfWeekIndex];
+
+            // Display the day of the week in a message box
+            alert("You were born on a " + dayOfWeekName + ".");
+        }
+    </script>
+</body>
+
+</html>
